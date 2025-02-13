@@ -1,0 +1,43 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>fr.openium.AutoCommit</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>AutoCommit</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor>Openium</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <p>Generate commit messages based on current branch</p>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https
+         ://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <action id="fr.openium.autocommit.actions.FillCommitMessageAction"
+                class="fr.openium.autocommit.actions.FillCommitMessageAction"
+                text="Generate Commit Message"
+                description="Generates a commit message based on the current branch name"
+                icon="/icons/generate-commit-message.svg">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="last"/>
+            <keyboard-shortcut first-keystroke="control alt ENTER" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>
