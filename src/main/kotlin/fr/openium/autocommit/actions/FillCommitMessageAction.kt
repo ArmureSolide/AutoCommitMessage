@@ -56,7 +56,7 @@ class FillCommitMessageAction : DumbAwareAction() {
 
     companion object {
         const val BRANCH_FORMAT = """([^/]+)/([^_]+)"""
-        const val COMMIT_FORMAT = """[^()]+\(#[^()]+\): ?(.+)?"""
+        const val COMMIT_FORMAT = """[^()]+(\(#?[^()]+\))?: ?(.+)?"""
 
         val typeSynonyms = mapOf(
             "feature" to "feat",
